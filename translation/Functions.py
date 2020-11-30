@@ -83,7 +83,7 @@ def ExtractCourseInformation(metadata_path):
                         child_parent_map[child] = element_id
                                        
                     # Element time
-                    if "start" in jsonObject[element_id]["metadata"]:
+                    if "start" in jsonObject[element_id]["metadata"] and jsonObject[element_id]["metadata"]["start"] is not null:
                         element_start_time = jsonObject[element_id]["metadata"]["start"]
                         element_start_time = element_start_time[0:19]
                         element_start_time = element_start_time.replace("T", " ")                    
@@ -93,7 +93,7 @@ def ExtractCourseInformation(metadata_path):
                         element_without_time.append(element_id)
 
                     # Element due time
-                    if "due" in jsonObject[element_id]["metadata"]:
+                    if "due" in jsonObject[element_id]["metadata"] and jsonObject[element_id]["metadata"]["due"] is not null:
                         element_due_time = jsonObject[element_id]["metadata"]["due"]
                         element_due_time = element_due_time[0:19]
                         element_due_time = element_due_time.replace("T", " ")                    
